@@ -1,31 +1,51 @@
+/* RESET START */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  display: flex;
+  font-size: 62.5%;
 }
-
+/* RESET END */
+/* SIDEBAR START */
 .sidebar {
-  width: 250px;
-  background: #E60023;
-  color: #fff;
-  padding: 20px;
+  width: 17rem;
   position: fixed;
   left: 0;
   top: 0;
-  overflow: hidden;
   height: 100%;
 }
+.sidebar-container{
+  background: #E60023;
+  color: #fff;
+  padding: 1rem;
+  overflow: auto;
+  height: 100%;
+}
+.sidebar-content {
+  padding-right: 0.5rem;
+  max-height: calc(100% - 5.5rem); /* Adjust max-height as needed */
+  overflow-y: auto; /* Always show a scrollbar, even when not scrolling */
+  scrollbar-width: thin; /* Firefox */
+  -webkit-scrollbar-width: thin; /* Webkit (Chrome, Safari) */
+}
+/* Hide the scrollbar for Webkit browsers (Chrome, Safari) */
+.sidebar-content::-webkit-scrollbar {
+  width: 0.3rem; /* Adjust the width as needed */
+}
 
+.sidebar-content::-webkit-scrollbar-thumb {
+  background: black; /* Hide the thumb */
+  border-radius: 100%;
+}
 .sidebar h2 {
   margin: 0;
 }
 
 .sidebar-icon{
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
-  margin-right: 12px;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1.5rem;
+  margin-right: 1rem;
 }
 
 .sidebar-link{
@@ -39,8 +59,49 @@ body {
 
 .sidebar-link:hover {
   opacity: 0.8;
-  border-radius: 8px;
-  border-width: 2px;
+  border-radius: 1rem;
+  border-width: 0.2rem;
   border-color: black;
   background-color: #fff;
 }
+
+/* SIDEBAR END */
+/* HEADER START */
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-icon-container{
+  padding: 0rem 1rem;
+  display: flex;
+}
+
+.user-icon-container{
+  padding: 0rem 1rem;
+  display: flex;
+}
+
+/* HEADER END */
+
+/* MEDIA QUERY START */
+@media (min-width: 600px) { 
+  /* .hamburger-icon{
+    display: none;
+  } */
+  .close-icon{
+    display: none;
+  }
+ }
+ @media (max-width: 600px) { 
+  .sidebar-visible{
+    display: none;
+  }
+  .hamburger-icon{
+    display: none;
+  }
+ }
+
+/* MEDIA QUERY END */

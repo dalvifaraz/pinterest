@@ -10,7 +10,7 @@ import store from './redux/store';
 import ErrorPage from './error-page';
 import './index.css';
 //TODO: Uncomment for bootstrap or later remove this along with dependency
-// import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
