@@ -1,9 +1,9 @@
-import { Outlet, Link } from 'react-router-dom';
-import Sidebar from '../Components/sidebar';
+import { Outlet } from 'react-router-dom';
+import Header from '../Components/header';
 export default function Root() {
   return (
     <>
-      <Sidebar />
+      <Header />
       <Outlet />
     </>
   );
