@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import store from './redux/store';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Root from './routes/root';
-import ErrorPage from './error-page';
 import Contact from './routes/contact';
+import Root from './routes/root';
 import Edit from './routes/edit';
+import store from './redux/store';
+import ErrorPage from './error-page';
+import './index.css';
+//TODO: Uncomment for bootstrap or later remove this along with dependency
+// import 'bootstrap/dist/css/bootstrap.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -38,7 +39,6 @@ const router = createBrowserRouter([
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <App /> */}
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
