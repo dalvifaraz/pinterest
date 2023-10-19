@@ -30,7 +30,7 @@ const Header = () => {
         </div>
       </div>
       <div className='user-icon-container'>
-        <GoSearch size={29} color='white' className='circle-search-icon' />
+        <GoSearch size={24} color='white' className='circle-search-icon' />
         <FaUserCircle size={30} />
       </div>
     </div>
