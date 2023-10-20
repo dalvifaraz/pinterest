@@ -27,7 +27,6 @@ const Pin: React.FC<PinProps> = ({
   save,
 }) => {
   const [postHovered, setPostHovered] = React.useState(false);
-  console.log('hello', _id, destination, image, postedBy, save);
   return (
     <div className='pin'>
       <div

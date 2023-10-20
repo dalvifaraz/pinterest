@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { categories } from '../Util';
 import { NavLink } from 'react-router-dom';
 import { FaPinterest } from 'react-icons/fa';
@@ -9,7 +9,7 @@ interface SideBarProp {
 }
 
 const Sidebar = ({ showSidebar, setShowSidebar }: SideBarProp) => {
-  const handleCloseSidebar = () => {};
+  const [selected, setSelected] = useState('');
   return (
     <>
       <div
@@ -28,8 +28,14 @@ const Sidebar = ({ showSidebar, setShowSidebar }: SideBarProp) => {
           }}
         >
           <FaPinterest className='pinterest-icon' color='#E60023' size={30} />
-          <h2 style={{ padding: '1rem 0.5rem', color: '#E60023', fontSize: '1.4rem' }}>
-            Pinterest by Faraz
+          <h2
+            style={{
+              padding: '1rem 0.5rem',
+              color: '#E60023',
+              fontSize: '1.4rem',
+            }}
+          >
+            Pin Post by Faraz
           </h2>
           <RiCloseCircleLine
             className='close-icon'
@@ -39,24 +45,41 @@ const Sidebar = ({ showSidebar, setShowSidebar }: SideBarProp) => {
           />
         </div>
         <div className='sidebar-container' style={{ background: '#E60023' }}>
-          <h4 style={{ marginBottom: '1rem' }}>Discover Category</h4>
+          <div className='sidebar-title-container'>
+            <h4>Discover Category</h4>
+            {selected.length > 0 && (
+              <h4 onClick={() => setSelected('')}>clear</h4>
+            )}
+          </div>
           <div className='sidebar-content'>
-            {categories.slice(0, categories.length - 1).map((category) => (
-              <NavLink
-                //   to={`/category/${category.name}`}
-                to={`/`}
-                className={({ isActive }) =>
-                  isActive
-                    ? 'isActiveStyle sidebar-link'
-                    : 'isNotActiveStyle sidebar-link'
-                }
-                onClick={handleCloseSidebar}
-                key={category.name}
-              >
-                <img alt='sidebar-icon' src={category.image} className='sidebar-icon' />
-                {category.name}
-              </NavLink>
-            ))}
+            {categories.slice(0, categories.length).map((category) => {
+              return (
+                <NavLink
+                  className='sidebar-link'
+                  key={category.name}
+                  to={'/pinterest'}
+                  onClick={() => setSelected(category.name)}
+                  style={() =>
+                    selected === category.name
+                      ? {
+                          opacity: '1',
+                          borderRadius: '1rem',
+                          borderWidth: '0.2rem',
+                          borderColor: 'black',
+                          backgroundColor: 'white',
+                        }
+                      : {}
+                  }
+                >
+                  <img
+                    alt='sidebar-icon'
+                    src={category.image}
+                    className='sidebar-icon'
+                  />
+                  {category.name}
+                </NavLink>
+              );
+            })}
           </div>
         </div>
       </div>
