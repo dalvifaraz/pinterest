@@ -23,18 +23,22 @@ body {
 }
 .sidebar-content {
   padding-right: 0.5rem;
-  max-height: calc(100% - 5.5rem); /* Adjust max-height as needed */
-  overflow-y: auto; /* Always show a scrollbar, even when not scrolling */
-  scrollbar-width: thin; /* Firefox */
-  -webkit-scrollbar-width: thin; /* Webkit (Chrome, Safari) */
+  max-height: calc(100% - 8rem); 
+  overflow-y: auto;
+  scrollbar-width: thin;
+  -webkit-scrollbar-width: thin;
 }
-/* Hide the scrollbar for Webkit browsers (Chrome, Safari) */
+.sidebar-title-container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
 .sidebar-content::-webkit-scrollbar {
-  width: 0.3rem; /* Adjust the width as needed */
+  width: 0.3rem;
 }
 
 .sidebar-content::-webkit-scrollbar-thumb {
-  background: black; /* Hide the thumb */
+  background: black;
   border-radius: 100%;
 }
 .sidebar h2 {
