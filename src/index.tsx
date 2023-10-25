@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: 'pin-details',
+        path: 'pin-details/:pinId',
         element: <PinDetails />,
         errorElement: <ErrorPage />,
       },

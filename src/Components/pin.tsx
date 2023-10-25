@@ -1,6 +1,8 @@
 import React from 'react';
 import { MdDownloadForOffline } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
+import { setPinSearch } from '../redux/action';
+import { useDispatch } from 'react-redux';
 
 export interface PinImageProps {
   url: string;
@@ -12,11 +14,11 @@ export interface PinPostByProps {
 }
 
 export interface PinProps {
-  _id: string;
-  destination: string;
-  image: PinImageProps;
-  postedBy: PinPostByProps;
-  save: any;
+  _id?: string;
+  destination?: string;
+  image?: PinImageProps;
+  postedBy?: PinPostByProps;
+  save?: any;
 }
 
 const Pin: React.FC<PinProps> = ({
@@ -27,6 +29,7 @@ const Pin: React.FC<PinProps> = ({
   save,
 }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [postHovered, setPostHovered] = React.useState(false);
   return (
     <div className='pin'>
@@ -34,12 +37,23 @@ const Pin: React.FC<PinProps> = ({
         className='pin-container'
         onMouseEnter={() => setPostHovered(true)}
         onMouseLeave={() => setPostHovered(false)}
-        onClick={() => navigate(`/pin-details`)}
+        onClick={() =>{
+          dispatch(setPinSearch(''))
+          navigate(`/pin-details/${_id}`, {
+            state: {
+              _id,
+              destination,
+              image,
+              postedBy,
+              save,
+            },
+          })
+        }
+        }
       >
         <img
           className='pin-image'
-          src={image.url}
-          //   src={urlFor(image.asset.url).width(250).url()}
+          src={image?.url}
           alt='user-post'
         />
 
