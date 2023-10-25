@@ -260,25 +260,25 @@ export const feed_details = [
     category: 'websites',
     _id: 'b6736f9d-4e65-4128-a1d4-cbbcdcda3a17',
   },
-  {
-    save: [
-      {
-        _key: '54ce05c2f72a',
-        posteBy: null,
-      },
-    ],
-    image: {
-      url: 'https://cdn.sanity.io/images/9r54wixb/production/ecad03eb5e6e4ae92b48d08231a67f14b0e7c2c3-880x645.jpg',
-    },
-    category: 'websites',
-    _id: 'ab3eadf3-c894-4444-89b6-c67fd2e0b305',
-    destination:
-      'https://res.cloudinary.com/practicaldev/image/fetch/s--_X0F8j5n--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/xyt83ew0p5q8blvmh5x6.jpg',
-    postedBy: {
-      _id: '1234',
-      username: 'dalvifaraz',
-      image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhCqMkjPQzsblbHoRsLwrfAxBYdJwac-e9iTw2O5f86w&s',
-    },
-  },
+  // {
+  //   save: [
+  //     {
+  //       _key: '54ce05c2f72a',
+  //       posteBy: null,
+  //     },
+  //   ],
+  //   image: {
+  //     url: 'https://cdn.sanity.io/images/9r54wixb/production/ecad03eb5e6e4ae92b48d08231a67f14b0e7c2c3-880x645.jpg',
+  //   },
+  //   category: 'websites',
+  //   _id: 'ab3eadf3-c894-4444-89b6-c67fd2e0b305',
+  //   destination:
+  //     'https://res.cloudinary.com/practicaldev/image/fetch/s--_X0F8j5n--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/xyt83ew0p5q8blvmh5x6.jpg',
+  //   postedBy: {
+  //     _id: '1234',
+  //     username: 'dalvifaraz',
+  //     image:
+  //       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhCqMkjPQzsblbHoRsLwrfAxBYdJwac-e9iTw2O5f86w&s',
+  //   },
+  // },
 ];
