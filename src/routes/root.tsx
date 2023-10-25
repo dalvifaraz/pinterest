@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
-import Header from '../Components/header';
 import MasonryLayout from '../Components/masonrylayout';
 import { feed_details } from '../Util/constant';
 import { useSelector } from 'react-redux';
@@ -16,16 +14,10 @@ export default function Root() {
       });
       setPinDetails(filteredData);
     }
-    if(search.length <= 0){
-      setPinDetails(feed_details)
+    if (search.length <= 0) {
+      setPinDetails(feed_details);
     }
   }, [search]);
 
-  return (
-    <>
-      <Header />
-      <MasonryLayout pins={pinDetails} />
-      <Outlet />
-    </>
-  );
+  return <MasonryLayout pins={pinDetails} />;
 }

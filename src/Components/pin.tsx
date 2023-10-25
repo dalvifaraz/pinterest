@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdDownloadForOffline } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export interface PinImageProps {
   url: string;
@@ -26,6 +26,7 @@ const Pin: React.FC<PinProps> = ({
   postedBy,
   save,
 }) => {
+  const navigate = useNavigate();
   const [postHovered, setPostHovered] = React.useState(false);
   return (
     <div className='pin'>
@@ -33,7 +34,7 @@ const Pin: React.FC<PinProps> = ({
         className='pin-container'
         onMouseEnter={() => setPostHovered(true)}
         onMouseLeave={() => setPostHovered(false)}
-        // onClick={() => navigate(`/pin-detail/${_id}`)}
+        onClick={() => navigate(`/pin-details`)}
       >
         <img
           className='pin-image'

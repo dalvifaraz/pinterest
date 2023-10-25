@@ -5,6 +5,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import { GoSearch } from 'react-icons/go';
 import Sidebar from './sidebar';
 import { setPinSearch } from '../redux/action';
+import { Outlet } from 'react-router-dom';
 
 const Header = () => {
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
@@ -36,6 +37,7 @@ const Header = () => {
         <GoSearch size={24} color='white' className='circle-search-icon' />
         <FaUserCircle size={30} />
       </div>
+      <Outlet />
     </div>
   );
 };
