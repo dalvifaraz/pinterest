@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdDownloadForOffline } from 'react-icons/md';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export interface PinImageProps {
   url: string;
@@ -54,7 +54,7 @@ const Pin: React.FC<PinProps> = ({
             >
               <div className='' style={{ display: 'flex', gap: 2 }}>
                 <a
-                    href={`${image?.url}?dl=`}
+                  href={`${image?.url}?dl=`}
                   download
                   onClick={(e) => e.stopPropagation()}
                   className='pin-download-img'
@@ -68,14 +68,14 @@ const Pin: React.FC<PinProps> = ({
       </div>
       <Link
         to={`user-profile/${postedBy?._id}`}
-        className="user-detail-container"
+        className='user-detail-container'
       >
         <img
           src={postedBy?.image}
-          alt="user-profile"
-          className="user-profile-picture"
+          alt='user-profile'
+          className='user-profile-picture'
         />
-        <p className="user-details-title">{postedBy?.username}</p>
+        <p className='user-details-title'>{postedBy?.username}</p>
       </Link>
     </div>
   );

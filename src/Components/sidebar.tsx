@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { categories } from '../Util';
 import { NavLink } from 'react-router-dom';
 import { FaPinterest } from 'react-icons/fa';
 import { RiCloseCircleLine } from 'react-icons/ri';
+import { setPinSearch } from '../redux/action';
 interface SideBarProp {
   showSidebar: boolean;
   setShowSidebar: Function;
 }
 
 const Sidebar = ({ showSidebar, setShowSidebar }: SideBarProp) => {
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState<boolean>(false);
+  const search = useSelector((state: any) => state.pinterest.searchValue);
+  const dispatch = useDispatch();
+
+  const handleSelected = (selectedValue : string) => {
+    setSelected(true);
+    dispatch(setPinSearch(selectedValue))
+  };
+
+  const handleClear = () => {
+    setSelected(false);
+    dispatch(setPinSearch(''))
+  };
   return (
     <>
       <div
@@ -47,8 +61,8 @@ const Sidebar = ({ showSidebar, setShowSidebar }: SideBarProp) => {
         <div className='sidebar-container' style={{ background: '#E60023' }}>
           <div className='sidebar-title-container'>
             <h4>Discover Category</h4>
-            {selected.length > 0 && (
-              <h4 onClick={() => setSelected('')}>clear</h4>
+            {selected && (
+              <h4 className='clear-button' onClick={() => handleClear()}>clear</h4>
             )}
           </div>
           <div className='sidebar-content'>
@@ -58,9 +72,9 @@ const Sidebar = ({ showSidebar, setShowSidebar }: SideBarProp) => {
                   className='sidebar-link'
                   key={category.name}
                   to={'/pinterest'}
-                  onClick={() => setSelected(category.name)}
+                  onClick={() => handleSelected(category.name)}
                   style={() =>
-                    selected === category.name
+                    search === category.name
                       ? {
                           opacity: '1',
                           borderRadius: '1rem',

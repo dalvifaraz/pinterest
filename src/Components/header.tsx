@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { HiMenu } from 'react-icons/hi';
 import { FaUserCircle } from 'react-icons/fa';
 import { GoSearch } from 'react-icons/go';
 import Sidebar from './sidebar';
+import { setPinSearch } from '../redux/action';
 
 const Header = () => {
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
-  const [search, setSearch] = useState<string>('');
+  const search = useSelector((state: any) => state.pinterest.searchValue);
+  const dispatch = useDispatch();
   return (
     <div className='header'>
       <div className='left-icon-container'>
@@ -24,7 +27,7 @@ const Header = () => {
             placeholder='Search'
             value={search}
             type='text'
-            onChange={(event) => setSearch(event.target.value)}
+            onChange={(event) => dispatch(setPinSearch(event.target.value))}
           />
           <GoSearch size={18} />
         </div>

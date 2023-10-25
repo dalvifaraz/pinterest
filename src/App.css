@@ -13,6 +13,7 @@ body {
   left: 0;
   top: 0;
   height: 100%;
+  z-index: 999;
 }
 .sidebar-container {
   background: #e60023;
@@ -23,12 +24,12 @@ body {
 }
 .sidebar-content {
   padding-right: 0.5rem;
-  max-height: calc(100% - 8rem); 
+  max-height: calc(100% - 8rem);
   overflow-y: auto;
   scrollbar-width: thin;
   -webkit-scrollbar-width: thin;
 }
-.sidebar-title-container{
+.sidebar-title-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
@@ -69,6 +70,10 @@ body {
   background-color: #fff;
 }
 
+.clear-button{
+  cursor: pointer;
+}
+
 /* SIDEBAR END */
 /* HEADER START */
 
@@ -98,6 +103,10 @@ body {
   /* width: 40%; */
 }
 
+.search-input:focus {
+  outline: none;
+}
+
 .search-input-container {
   border: 1px solid gray;
   border-radius: 4rem;
@@ -123,7 +132,7 @@ body {
 }
 
 /*  */
-.pin{
+.pin {
   border: 0.5px solid rgb(196, 196, 183);
   border-radius: 0.5rem;
   /* padding: 0.3rem; */

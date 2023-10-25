@@ -10,4 +10,11 @@ function decrement() {
   };
 }
 
-export { increment, decrement };
+function setPinSearch(value: string){
+  return{
+    type: 'SET_PIN_SEARCH',
+    value,
+  }
+}
+
+export { increment, decrement, setPinSearch };
