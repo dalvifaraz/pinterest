@@ -19,8 +19,7 @@ const MasonryLayout: React.FC<MasonryLayoutProps> = ({ pins }) => {
 
   return (
     <Masonry
-      className='masonry-layout'
-      style={{ display: 'flex', position: 'absolute', left: '18rem' }}
+      className='masonry-layout root-container'
       breakpointCols={breakPointObj}
     >
       {pins.length > 0 &&

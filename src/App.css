@@ -70,7 +70,7 @@ body {
   background-color: #fff;
 }
 
-.clear-button{
+.clear-button {
   cursor: pointer;
 }
 
@@ -131,7 +131,7 @@ body {
   grid-template-rows: masonry;
 }
 
-/*  */
+/* PIN Component Start */
 .pin {
   border: 0.5px solid rgb(196, 196, 183);
   border-radius: 0.5rem;
@@ -199,8 +199,16 @@ body {
   text-transform: capitalize;
 }
 
-/*  */
+/* Pin component end */
 
+/* Main Container */
+.root-container {
+  display: flex;
+  position: absolute;
+  left: 18rem;
+  top: 3rem;
+}
+/* Main Container */
 /* MEDIA QUERY START */
 
 @media (min-width: 768px) {
@@ -226,8 +234,8 @@ body {
     display: none;
     width: 30%;
   }
-  .masonry-layout {
-    left: 0rem !important;
+  .masonry-layout, .root-container {
+    left: 1rem !important;
   }
 }
 
