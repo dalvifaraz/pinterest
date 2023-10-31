@@ -19,5 +19,15 @@ export default function Root() {
     }
   }, [search]);
 
-  return <MasonryLayout pins={pinDetails} />;
+  console.log('hello', pinDetails);
+
+  return (
+    <>
+      {pinDetails.length > 0 ? (
+        <MasonryLayout pins={pinDetails} />
+      ) : (
+        <h2 style={{ marginLeft: '18rem' }}>No data found</h2>
+      )}
+    </>
+  );
 }
