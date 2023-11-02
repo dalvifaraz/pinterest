@@ -20,7 +20,7 @@ const root = ReactDOM.createRoot(
 
 const router = createBrowserRouter([
   {
-    path: 'login',
+    path: 'pinterest/login',
     element: <Login />,
     errorElement: <ErrorPage />,
   },
