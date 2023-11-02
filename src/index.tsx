@@ -10,6 +10,7 @@ import ErrorPage from './error-page';
 import './index.css';
 import PinDetails from './routes/details';
 import Header from './Components/header';
+import Login from './routes/login';
 //TODO: Uncomment for bootstrap or later remove this along with dependency
 // import 'bootstrap/dist/css/bootstrap.css';
 
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
     ],
+  },
+  {
+    path: 'pinterest/login',
+    element: <Login />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

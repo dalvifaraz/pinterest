@@ -17,4 +17,11 @@ function setPinSearch(value: string){
   }
 }
 
-export { increment, decrement, setPinSearch };
+function setIsUserLogin(value: boolean){
+  return{
+    type: 'SET_IS_USER_LOGIN',
+    value,
+  }
+}
+
+export { increment, decrement, setPinSearch, setIsUserLogin };

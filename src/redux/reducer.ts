@@ -17,12 +17,15 @@ const appReducer = (state = initialState, action: any) => {
 
 const initialPinterestState: any = {
   searchValue: '',
+  isLogin: false,
 }
 
 const pinterestReducer = (state = initialPinterestState, action: any) => {
   switch (action.type) {
     case 'SET_PIN_SEARCH':
       return { ...state, searchValue: action.value };
+    case 'SET_IS_USER_LOGIN':
+      return { ...state, isLogin: action.value };
     default:
       return state;
   }
