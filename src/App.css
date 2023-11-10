@@ -14,6 +14,8 @@ body {
   top: 0;
   height: 100%;
   z-index: 999;
+  border-right: 0.2rem solid #e60023;
+  border-top: 0.2rem solid #e60023;
 }
 .sidebar-container {
   background: #e60023;
@@ -284,6 +286,15 @@ body {
 }
 
 /* Login End */
+
+/* PIN MODAL START */
+
+.modal-header{
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* PIN MODAL END */
 
 /* Loader Start */
 .loader {

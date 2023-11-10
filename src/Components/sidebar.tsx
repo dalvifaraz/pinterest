@@ -8,30 +8,34 @@ import { setPinSearch } from '../redux/action';
 interface SideBarProp {
   showSidebar: boolean;
   setShowSidebar: Function;
+  isModalOpen: boolean;
+  setIsModalOpen: Function;
 }
 
-const Sidebar = ({ showSidebar, setShowSidebar }: SideBarProp) => {
+const Sidebar = ({ showSidebar, setShowSidebar, isModalOpen, setIsModalOpen }: SideBarProp) => {
   const [selected, setSelected] = useState<boolean>(false);
   const search = useSelector((state: any) => state.pinterest.searchValue);
   const dispatch = useDispatch();
 
   const handleSelected = (selectedValue : string) => {
-    setSelected(true);
-    dispatch(setPinSearch(selectedValue))
+    if(!isModalOpen){
+      setSelected(true);
+      dispatch(setPinSearch(selectedValue))
+    }
   };
 
   const handleClear = () => {
-    setSelected(false);
-    dispatch(setPinSearch(''))
+    if(!isModalOpen){
+      setSelected(false);
+      dispatch(setPinSearch(''))
+    }
   };
   return (
     <>
       <div
-        style={{
-          borderRight: '0.2rem solid #E60023',
-          borderTop: '0.2rem solid #E60023',
-        }}
+        style={isModalOpen ? {opacity: 0.5} : {}}
         className={showSidebar ? 'sidebar' : 'sidebar sidebar-visible'}
+        onClick={()=>{setIsModalOpen(false)}}
       >
         <div
           style={{
@@ -53,7 +57,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }: SideBarProp) => {
           </h2>
           <RiCloseCircleLine
             className='close-icon'
-            onClick={() => setShowSidebar(false)}
+            onClick={() => !isModalOpen && setShowSidebar(false)}
             size={24}
             style={{ marginTop: '0.3rem' }}
           />

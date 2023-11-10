@@ -3,19 +3,32 @@ import { useSelector, useDispatch } from 'react-redux';
 import { HiMenu } from 'react-icons/hi';
 import { FaUserCircle } from 'react-icons/fa';
 import { GoSearch } from 'react-icons/go';
+import { RiAddCircleFill } from 'react-icons/ri';
 import Sidebar from './sidebar';
 import { setPinSearch } from '../redux/action';
 import { Outlet } from 'react-router-dom';
+import PinModal from './pinmodal';
 
 const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
   const search = useSelector((state: any) => state.pinterest.searchValue);
   const dispatch = useDispatch();
+
+  function openModal() {
+    setIsModalOpen(true);
+  }
+
   return (
     <>
       <div className='header'>
         <div className='left-icon-container'>
-          <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+          <Sidebar
+            setIsModalOpen={setIsModalOpen}
+            isModalOpen={isModalOpen}
+            showSidebar={showSidebar}
+            setShowSidebar={setShowSidebar}
+          />
           <HiMenu
             onClick={() => setShowSidebar(true)}
             className={showSidebar ? 'hamburger-icon' : ''}
@@ -36,9 +49,11 @@ const Header = () => {
         </div>
         <div className='user-icon-container'>
           <GoSearch size={24} color='white' className='circle-search-icon' />
-          <FaUserCircle size={30} />
+          <RiAddCircleFill onClick={openModal} size={34} />
+          <FaUserCircle className='user-icon' size={30} />
         </div>
       </div>
+      <PinModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <Outlet />
     </>
   );
